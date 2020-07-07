@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap'
 import NewActivity from './form-new-activity'
+// import Dashboard from './dashboard'
+// import { Redirect } from 'react-router-dom'
 
 class Login extends React.Component {
   constructor(props) {
@@ -33,11 +35,12 @@ class Login extends React.Component {
       .then(response => {
         localStorage.setItem('token', response.data.token)
         this.setState({ isLoggedIn: true })
+        this.props.history.push('/dashboard')
         console.log(response.data)
       })
       .catch(error => {
         this.setState({ error: true })
-        console.log(error)
+        //console.log(error)
       })
     this.setState({
       name: '',
@@ -66,7 +69,9 @@ class Login extends React.Component {
     return (
       <div>
         {error && (
-          <Alert color='danger'>Sorry, name or password are incorrect!</Alert>
+          <Alert color='primary'>
+            Sorry, name or password are incorrect! Try again, or sign up!
+          </Alert>
         )}
         <div>
           <Form inline>

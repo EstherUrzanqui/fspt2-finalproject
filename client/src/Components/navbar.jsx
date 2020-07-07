@@ -46,6 +46,7 @@ const OurNavbar = props => {
           </Nav>
           <NavLink href='/signup'>Signup</NavLink>
           <NavLink href='/login'>Login</NavLink>
+          <NavLink href='/dashboard'>Profile</NavLink>
         </Collapse>
       </Navbar>
     </div>

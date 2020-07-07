@@ -26,15 +26,17 @@ routes.get('/users/:id', (req, res, next) => {
     .catch(err => res.status(500).send(err))
 })
 
-// GET user by id + his/her activities
-routes.get('/users/:id', (req, res, next) => {
+// GET user's activities (by user id)
+routes.get('/userActivity/:id', (req, res, next) => {
   const { id } = req.params
   models.user
     .findOne({
       where: {
         id,
       },
-      include: models.activitie,
+      // include: models.user_activitie.findAll({
+      //   where: { id },
+      // }),
     })
     .then(user => res.send(user))
     .catch(err => res.status(500).send(err))

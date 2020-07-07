@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //user.hasMany(models.activities)
     }
   }
   user.init(
@@ -20,17 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       phone: DataTypes.INTEGER,
       password: DataTypes.STRING,
     },
-    // {
-    //   freezeTableName: true,
-    //   instanceMethods: {
-    //     generateHash(password) {
-    //       return bcrypt.hash(password, 10)
-    //     },
-    //     validPassword(password) {
-    //       return bcrypt.compare(password, this.password)
-    //     },
-    //   },
-    // },
     {
       sequelize,
       modelName: 'user',
